@@ -1,0 +1,28 @@
+# .bash_profile
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+# User specific environment and startup programs
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
+export PATH
+
+### Monkey as alias
+alias monkey=/wynton/group/gladstone/biocore/MonkeyPipeline/monkey_agw
+
+### >>> Monkey on Wynton config BEGIN
+BINFAPPBASE=/wynton/group/gladstone/third_party
+BINFVERSION=monkey_path
+export BINFSWROOT=$BINFAPPBASE/$BINFVERSION   # “bioinformatics software root” BIOINFORMATICS SPECIFIC# example: /data/applications/2015_06/
+export BINFBINROOT=${BINFSWROOT} # used elsewhere, be sure to EXPORT it
+export PERL5LIB=${BINFSWROOT}/libperl/lib/perl5:$HOME/.linuxbrew/lib/perl5/site_perl:${PERL5LIB}
+export PERLLIB=${PERL5LIB}
+export R_LIBS=$BINFSWROOT/libr:${R_LIBS}   # Libraries for R
+export PATH=“${BINFBINROOT}:${PATH}” # BIOINFORMATICS SPECIFIC
+export LD_LIBRARY_PATH=“$BINFSWROOT/lib:$LD_LIBRARY_PATH”
+export LIBRARY_PATH=${LD_LIBRARY_PATH}
+export CPATH=$BINFSWROOT/include:$CPATH
+export BINFPYROOT=$BINFSWROOT/libpython2.7/
+export PYTHONPATH=$BINFPYROOT:$BINFPYROOT/lib64/python2.7/site-packages:$BINFPYROOT/lib/python2.7/site-packages
+### <<< Monkey on Wynton config END
+
