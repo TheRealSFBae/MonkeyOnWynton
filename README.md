@@ -14,28 +14,49 @@ Monkey on Wynton comes with a few caveats:
     - New projects should utilize new, Wynton-optimized pipelines.
     - [Contact me](mailto:angelo.pelonero@gladstone.ucsf.edu) if you need help with these - helper scripts are coming soon.
 3. Monkey on Wynton has not been extensively tested, so bugs are likely (though may be rare)
-4. Monkey generates an absolute boatload of log files - name your projects with a unique ID for easy log file management (to facilitate use of a command like `mv uniqueID* logfiledir/` or similar)
+4. Monkey generates an absolute boatload of log files - name your projects with a unique ID for easy log file management (see "Best Practices" section at bottom or README)
 
-## Setup
+## Setup + Runs
 
-Prerequisites:
+#### Prerequisites:
 
 1. A [Wynton account](https://wynton.ucsf.edu/hpc/about/join.html) + a working knowledge of the system (browse the [Wynton HPC site](https://wynton.ucsf.edu/hpc/index.html) to learn more)
 2. Access to the [Gladstone Data Transfer server](https://confluence.gladstone.org/confluence/display/WYN/Moving+files+between+Gladstone+and+Wynton) [optional, but highly recommended]
 
-Steps:
+#### Setup:
 
 1. Add the contents of `src/add2bash_profile.txt` to the end of your Wynton account's `.bash_profile`
     - Do *not* add this to `.bashrc` unless you want to break some core server functionality!
     - Example `.bash_profile` can be found in `src/bash_profileExample4MonkeyOnWynt.txt`
 
 2. Run `source ~/.bash_profile` or log out + bask in to activate changes
-3. Invoke `monkey config.cfg` to submit jobs
-    - Example config file can be found in `src/example_config_MonkeyOnWynt.cfg`
-    - **IMPORTANT**: ALWAYS use `/wynton/group/gladstone/users/your-username/` for your projects. You may also use the Wynton `scratch` space (wiped every two weeks) and copy the results you need back to your account spaces.
-    - Do not store your source data or results on Wynton. Please remove all files at the end of a run and store them on Dropbox/the Hub.
-    - NOTE: I [Angelo] am unclear on these rsync settings (URL and folder). Any long-time Monkey users care to explain this to me?
+3. Test monkey by running `monkey`. You should see this output if setup was successful:
 
+   ```
+   ERROR: You must specify a "study design" file (as the very last command line argument to the program) when running Monkey. See --help for more options. at /wynton/group/gladstone/biocore/MonkeyPipeline/monkey_agw line 95.
+   ```
+
+Monkey is now ready for use, you will not need to repeat these steps.
+
+#### Run:
+1. Copy your source data to Wynton (to `group/` or `/scratch`)
+2. Setup your source files and config document
+    - An example Monkey `.cfg` document can be found in `src/example_config_MonkeyOnWynt.cfg`
+    - A blank config can be found in `src/MonkeyonWyntConfig.cfg`
+    - NOTE: I [Angelo] am unclear on these rsync settings (URL and folder). Any long-time Monkey users care to explain this to me?
+3. `cd` to the project directory
+4. Invoke `monkey config.cfg` to run Monkey
+5. Let the script run and return ou to the command line (warnings are OK, errors will stop job submission)
+6. Check job status with `qstat` - you can exit Wynton and let these processes run.
+
+##### Best practices:
+- ALWAYS use `/wynton/group/gladstone/users/your-username/` for your projects. Create a directory if you do not have one. You may also use the Wynton `scratch` space (wiped every two weeks) and copy the results you need back to your account spaces.
+- **Do not store your source data or results on Wynton.** Please remove all files at the end of a run and store them on Dropbox/the Hub.
+- Use care when manipulating job log files in your home directory.
+    - Name your projects with a unique ID for easy log file management. As an example:
+        - [in monkey.cfg]: `studyName = UniqueID115566`
+    - After your run, you will see loads of log files in your home dir (`~/`) - `UniqueID115566_processname.e[JOB_ID]`, `UniqueID115566_processname.o[JOB_ID]`, etc.
+    - You can batch move or delete these files like so: `mkdir logfiledir | mv UniqueID115566* logfiledir/` or `rm UniqueID115566*`
 
 ```
 -={ see no Rigel }={ hear no Rigel }={ speak no Rigel }={ have mo fun }=-
