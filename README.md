@@ -25,7 +25,7 @@ Monkey on Wynton comes with a few caveats:
 
 #### Setup:
 ##### (run this once)
-1. Add the contents of `src/add2bash_profile.txt` to the end of your Wynton account's `.bash_profile`
+1. Add the contents of `src/01_setup/add2bash_profile.txt` to the end of your Wynton account's `.bash_profile`
     - **1a.** *By script:* 
         - Upload files from `src/01_setup/` to your Wynton home directory, login to Wynton, and run `sh MonkeySetup.sh`
     - **OR 1b.** *Manually:*
@@ -48,8 +48,8 @@ Until this is clarified please [contact me](mailto:angelo.pelonero@gladstone.ucs
 
 1. Copy your source data to Wynton (`/wynton/scratch/your-project-dir/` or `/wynton/group/gladstone/your-username/` only)
 2. Setup your source files and config document
-    - An example Monkey `.cfg` document can be found in `src/example_config_MonkeyOnWynt.cfg`
-    - A blank config can be found in `src/MonkeyonWyntConfig.cfg`
+    - An example Monkey `.cfg` document can be found in `src/02_configs/example_config_MonkeyOnWynt.cfg`
+    - A blank config can be found in `src/02_configs/MonkeyonWyntConfig.cfg`
 3. `cd` to the project directory
 4. Invoke `monkey config.cfg` to run Monkey
 5. Let the script run and return ou to the command line (warnings are OK, errors will stop job submission)
