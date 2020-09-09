@@ -24,22 +24,24 @@ Monkey on Wynton comes with a few caveats:
 2. Access to the [Gladstone Data Transfer server](https://confluence.gladstone.org/confluence/display/WYN/Moving+files+between+Gladstone+and+Wynton) [optional, but highly recommended]
 
 #### Setup:
-
+##### (run this once)
 1. Add the contents of `src/add2bash_profile.txt` to the end of your Wynton account's `.bash_profile`
+    - **1a.** *By script:* 
+        - Upload files from `src/01_setup/` to your Wynton home directory, login to Wynton, and run `sh MonkeySetup.sh`
+    - **OR 1b.** *Manually:*
+        - Copy the contents of `src/01_setup/add2bash_profile.txt` and paste it into your Wynton's ~/.bash_profile via your favorite text editor (login, `nano ~/.bash_profile`, paste lines, save file) + `source ~/bash_profile`)
     - Do *not* add this to `.bashrc` unless you want to break some core server functionality!
-    - Example `.bash_profile` can be found in `src/bash_profileExample4MonkeyOnWynt.txt`
+    - An example Wynton `.bash_profile` can be found in `src/_misc_info/bash_profileExample4MonkeyOnWynt.txt`
 
-2. Run `source ~/.bash_profile` or log out + bask in to activate changes
-3. Test monkey by running `monkey`. You should see this output if setup was successful:
+2. Test monkey by running `monkey`. You should see this output if setup was successful:
 
    ```
    ERROR: You must specify a "study design" file (as the very last command line argument to the program) when running Monkey. See --help for more options. at /wynton/group/gladstone/biocore/MonkeyPipeline/monkey_agw line 95.
    ```
 
-Monkey is now ready for use, you will not need to repeat these steps.
+Monkey is now ready for use. You will not need to repeat these steps.
 
 #### Run:
-
 NOTE 09-09-2020: I [Angelo] am unclear on these rsync settings (URL and folder). Clarification on ths would be appreciated - let me know!
 
 Until this is clarified please [contact me](mailto:angelo.pelonero@gladstone.ucsf.edu) for advice on these settings (lines 54-55 in `.cfg` file)
