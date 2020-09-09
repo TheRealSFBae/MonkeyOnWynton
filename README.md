@@ -14,14 +14,14 @@ Monkey on Wynton comes with a few caveats:
     - New projects should utilize new, Wynton-optimized pipelines.
     - [Contact me](mailto:angelo.pelonero@gladstone.ucsf.edu) if you need help with these - helper scripts are coming soon.
 3. Monkey on Wynton has not been extensively tested, so bugs are likely (though may be rare)
-4. Monkey generates an absolute boatload of log files - name your projects with a unique ID for easy log file management (to facilitate use of a command like `mv *uniqueID* logfiledir/` or similar)
+4. Monkey generates an absolute boatload of log files - name your projects with a unique ID for easy log file management (to facilitate use of a command like `mv uniqueID* logfiledir/` or similar)
 
 ## Setup
 
 Prerequisites:
 
-1. A Wynton account + a loose working knowledge of the system
-2. Access to the Gladstone Data Transfer server [optional, but highly recommended]
+1. A [Wynton account](https://wynton.ucsf.edu/hpc/about/join.html) + a working knowledge of the system (browse the [Wynton HPC site](https://wynton.ucsf.edu/hpc/index.html) to learn more)
+2. Access to the [Gladstone Data Transfer server](https://confluence.gladstone.org/confluence/display/WYN/Moving+files+between+Gladstone+and+Wynton) [optional, but highly recommended]
 
 Steps:
 
@@ -32,7 +32,8 @@ Steps:
 2. Run `source ~/.bash_profile` or log out + bask in to activate changes
 3. Invoke `monkey config.cfg` to submit jobs
     - Example config file can be found in `src/example_config_MonkeyOnWynt.cfg`
-    - **IMPORTANT**: ALWAYS use `/wynton/group/gladstone/users/your-username/` for your projects.
+    - **IMPORTANT**: ALWAYS use `/wynton/group/gladstone/users/your-username/` for your projects. You may also use the Wynton `scratch` space (wiped every two weeks) and copy the results you need back to your account spaces.
+    - Do not store your source data or results on Wynton. Please remove all files at the end of a run and store them on Dropbox/the Hub.
     - NOTE: I [Angelo] am unclear on these rsync settings (URL and folder). Any long-time Monkey users care to explain this to me?
 
 
