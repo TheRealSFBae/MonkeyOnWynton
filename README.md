@@ -39,15 +39,20 @@ Monkey on Wynton comes with a few caveats:
 Monkey is now ready for use, you will not need to repeat these steps.
 
 #### Run:
-1. Copy your source data to Wynton (to `group/` or `/scratch`)
+
+NOTE 09-09-2020: I [Angelo] am unclear on these rsync settings (URL and folder). Clarification on ths would be appreciated - let me know!
+
+Until this is clarified please [contact me](mailto:angelo.pelonero@gladstone.ucsf.edu) for advice on these settings (lines 54-55 in `.cfg` file)
+
+1. Copy your source data to Wynton (`/wynton/scratch/your-project-dir/` or `/wynton/group/gladstone/your-username/` only)
 2. Setup your source files and config document
     - An example Monkey `.cfg` document can be found in `src/example_config_MonkeyOnWynt.cfg`
     - A blank config can be found in `src/MonkeyonWyntConfig.cfg`
-    - NOTE: I [Angelo] am unclear on these rsync settings (URL and folder). Any long-time Monkey users care to explain this to me?
 3. `cd` to the project directory
 4. Invoke `monkey config.cfg` to run Monkey
 5. Let the script run and return ou to the command line (warnings are OK, errors will stop job submission)
 6. Check job status with `qstat` - you can exit Wynton and let these processes run.
+7. Move results and source data to Dropbox or the Hub - `scratch` is wiped regularly and `group/` has finite space! Be a good citizen.
 
 ##### Best practices:
 - ALWAYS use `/wynton/group/gladstone/users/your-username/` for your projects. Create a directory if you do not have one. You may also use the Wynton `scratch` space (wiped every two weeks) and copy the results you need back to your account spaces.
