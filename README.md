@@ -1,6 +1,6 @@
 # Monkey on Wynton
 
-Doing this alone? Impossible without a huge time investment. Working with a "ported" Monkey that the bioinformatics core established? Easy. Well, sort of.
+Porting Monkey to Wynton on my own? Impossible without a huge time investment. Working with a ported Monkey that the Gladstone bioinformatics core established? Easy. Well, sort of.
 
 Executable location on Wynton: `/wynton/group/gladstone/biocore/MonkeyPipeline/monkey_agw`
 
@@ -57,8 +57,8 @@ Until this is clarified please [contact me](mailto:angelo.pelonero@gladstone.ucs
 7. Move results and source data to Dropbox or the Hub - `scratch` is wiped regularly and `group/` has finite space! Be a good citizen.
 
 ##### Best practices:
-- ALWAYS use `/wynton/group/gladstone/users/your-username/` for your projects. Create a directory if you do not have one. You may also use the Wynton `scratch` space (wiped every two weeks) and copy the results you need back to your account spaces.
-- **Do not store your source data or results on Wynton.** Please remove all files at the end of a run and store them on Dropbox/the Hub.
+- ALWAYS use `/wynton/scratch/your-project/` OR `/wynton/group/gladstone/users/your-username/` for your work. Create a directory if you do not have one, and always move your source files and Monkey outputs off of Wynton after a run.
+- **Again, do NOT store your source data or results on Wynton.** Please remove all files at the end of a run and store them on Dropbox/the Hub.
 - Use care when manipulating job log files in your home directory.
     - Name your projects with a unique ID for easy log file management. As an example:
         - [in monkey.cfg]: `studyName = UniqueID115566`
